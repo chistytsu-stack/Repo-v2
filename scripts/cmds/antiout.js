@@ -19,11 +19,11 @@ module.exports = {
       await threadsData.set(event.threadID, true, "settings.antiout");
       antiout = true;
     }
-    if (!["on", "off"].includes(args[0])) {
-      return message.reply("Please use 'on' or 'off' as an argument");
+    if (!["𝙾𝙽", "𝙾𝙵𝙵"].includes(args[0])) {
+      return message.reply("✦━━━━━━━━━━━━━━━━✦\nn 𝙿𝙻𝙴𝙰𝚂𝙴 𝚄𝚂𝙴 '𝙾𝙽' 𝙾𝚁 '𝙾𝙵𝙵' 𝙰𝚂 𝙰𝙽 𝙰𝚁𝙶𝚄𝙼𝙴𝙽𝚃\n\n ✦━━━━━━━━━━━━━━━━✦");
     }
     await threadsData.set(event.threadID, args[0] === "on", "settings.antiout");
-    return message.reply(`Antiout has been ${args[0] === "on" ? "enabled" : "disabled"}.`);
+    return message.reply(`✦━━━━━━━━━━━━━━━━✦\n\n 𝙰𝙽𝚃𝙸𝙾𝚄𝚃 𝙷𝙰𝚂 𝙱𝙴𝙴𝙽 ${args[0] === "𝙾𝙽" ? "enabled" : "disabled"}.\n\n ✦━━━━━━━━━━━━━━━━✦`);
   },
   onEvent: async function({ api, event, threadsData }) {
     const antiout = await threadsData.get(event.threadID, "settings.antiout");
