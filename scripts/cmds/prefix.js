@@ -113,12 +113,13 @@ module.exports = {
     if (event.body && event.body.toLowerCase() === "prefix") {
       return message.reply({
         body:
-          "╔══『 𝐏𝐑𝐄𝐅𝐈𝐗 』══╗\n"
-        + `║ 🌍 System : ${globalPrefix}\n`
-        + `║ 💬 Chatbox : ${threadPrefix}\n`
-        + `║ ➤ ${threadPrefix}help to see all available cmds 🥵\n`
-        + "╚═══════════════╝",
-        attachment: await utils.getStreamFromURL("https://files.catbox.moe/7u1qjo.jpg")
+          "✦━━━━━━━━━━━━━━━━━✦\n"
+        + ` ▢ System : ${globalPrefix} \n`
+        + ` ◔ Group : ${threadPrefix} \n`
+        + ` ❑ ${threadPrefix}help to see all cmds\n`
+	    + ` ◐ 𝙵𝙰𝙲𝙴𝙱𝙾𝙾𝙺 : https://www.facebook.com/chisty.57 \n`
+        + "✦━━━━━━━━━━━━━━━━━✦",
+        attachment: await utils.getStreamFromURL("https://drive.google.com/uc?export=download&id=1-jVMO75S1H3QS5Vaei0aCzXShjUNDmY5")
       });
     }
   }
