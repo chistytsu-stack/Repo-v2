@@ -12,30 +12,30 @@
 	"antiInbox": true,
 	"language": "en",
 	"notesLanguage": "change to your language with ISO 639-1 code, available languages: vi (Vietnamese), en (English)",
-	"nickNameBot": "♡︎𝗠𝗜𝗥𝗔 𝗞𝗜𝗠 𝗥𝗢𝗕𝗢𝗧♡︎🚬",
-	"prefix": "-",
+	"nickNameBot": "✦━━━━━🎀𝐌𝐄𝐇𝐄𝐑𝐀𝐙 𝐁𝐎𝐓🙂🎀━━━━━✦",
+	"prefix": ".",
 	"adminOnly": {
 		"enable": false,
 		"ignoreCommand": []
 	},
 	"adminBot": [
-		"100044855600383"
+		"100023789902793"
 	],
 	"nisanBot": [
-		"GROUP_ID"
+		"8846227312126145"
 	],
 	"notes": "YOUR GROUP ID or Tid ID SET NOW , BECAUSE BOT LOGS MESSAGE SENT YOUR GROUP",
 	"whiteListMode": {
 		"enable": false,
 		"whiteListIds": [
-			""
+			"100023789902793"
 		],
 		"notes": "if you enable this feature, only the ids in the whiteListIds list can use the bot"
 	},
 	"whiteListModeThread": {
 		"enable": false,
 		"whiteListThreadIds": [
-			""
+			"8846227312126145"
 		],
 		"notes": "if you enable this feature, only the thread in the whiteListThreadIds list can use the bot",
 		"how_it_work": "if you enable both whiteListMode and whiteListModeThread, the system will check if the user is in whiteListIds, then check if the thread is in whiteListThreadIds, if one of the conditions is true, the user can use the bot"
