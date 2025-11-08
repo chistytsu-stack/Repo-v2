@@ -19,7 +19,7 @@ module.exports = {
 	langs: {
 		en: {
 			missingInput: "⚠ Please provide a valid URL or reply to a message with media.",
-			uploadSuccess: "🦆 Successfully Uploaded to Google Drive!\n\n🔗 Direct URL: {url}\n🆔 File ID: {id}",
+			uploadSuccess: "✦━━━━━━━━━━━━━━━━✦\n\n ✿Successfully Uploaded to Google Drive!\n\n🔗 Direct URL: {url}\n🆔 File ID: {id}",
 			albumFail: "❌ Failed to retrieve file information.",
 			error: "⚠ An error occurred during upload.\nError: {error}"
 		}
