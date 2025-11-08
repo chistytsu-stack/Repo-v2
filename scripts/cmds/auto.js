@@ -25,7 +25,7 @@ module.exports = {
     if (!linkMatch) return;
 
     const sumaiya = linkMatch[0];
-    api.setMessageReaction("♻", event.messageID, () => {}, true);
+    api.setMessageReaction("🎯", event.messageID, () => {}, true);
 
     try {
       
@@ -37,7 +37,7 @@ module.exports = {
       const { title, downloadurlX } = response.data;
 
       if (!downloadurlX) {
-        api.setMessageReaction("✖", event.messageID, () => {}, true);
+        api.setMessageReaction("🫂", event.messageID, () => {}, true);
         return api.sendMessage("", threadID, event.messageID);
       }
 
