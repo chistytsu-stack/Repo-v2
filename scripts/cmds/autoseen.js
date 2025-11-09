@@ -1,47 +1,45 @@
-const fs = require('fs-extra');
-const pathFile = __dirname + '/cache/autoseen.txt';
+const fs = require("fs");
+const path = require("path");
+
+const cacheDir = path.join(__dirname, "cache");
+const filePath = path.join(cacheDir, "autoseen.txt");
 
 module.exports = {
-	config: {
-	name: "autoseen",
-	version: "1.0.0",
-	hasPermssion: 2,
-	author: "Jas",
-	shortDescription: {
-			en: "Turn on/off automatically seen when new messages are available"
-		},
-		longDescription: {
-			en: "Turn on/off automatically seen when new messages are available"
-		},
-	category: "Admin",
-	guide: {
-	 en: "on/off",
-},
-	cooldowns: 5,
-},
+  config: {
+    name: "autoseen",
+    aliases: ["seen"],
+    version: "1.0.0",
+    author: "Meheraz",
+    shortDescription: {
+      en: "Automatically track who sends messages and when they were last seen.",
+    },
+    category: "📜 System",
+    guide: {
+      en: "{pn} — automatically saves last seen users into autoseen.txt",
+    },
+  },
 
-onChat: async ({ api, event, args }) => {
-if (!fs.existsSync(pathFile))
-	 fs.writeFileSync(pathFile, 'false');
-	 const isEnable = fs.readFileSync(pathFile, 'utf-8');
-	 if (isEnable == 'true')
-		 api.markAsReadAll(() => {});
-},
+  onStart: async function ({ message, event }) {
+    try {
+      // Ensure cache folder and file exist
+      if (!fs.existsSync(cacheDir)) {
+        fs.mkdirSync(cacheDir, { recursive: true });
+      }
+      if (!fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, "", "utf8");
+      }
 
-onStart: async ({ api, event, args }) => {
-	 try {
-		 if (args[0] == 'on') {
-			 fs.writeFileSync(pathFile, 'true');
-			 api.sendMessage('The autoseen function is now enabled for new messages.', event.threadID, event.messageID);
-		 } else if (args[0] == 'off') {
-			 fs.writeFileSync(pathFile, 'false');
-			 api.sendMessage('The autoseen function has been disabled for new messages.', event.threadID, event.messageID);
-		 } else {
-			 api.sendMessage('Incorrect syntax', event.threadID, event.messageID);
-		 }
-	 }
-	 catch(e) {
-		 console.log(e);
-	 }
-}
+      const userID = event.senderID || "unknown";
+      const timestamp = new Date().toISOString();
+      const line = `${userID} | ${timestamp}\n`;
+
+      // Append to file
+      fs.appendFileSync(filePath, line, "utf8");
+
+      await message.reply(`✅ User ${userID} last seen saved at ${timestamp}`);
+    } catch (err) {
+      console.error("autoseen error:", err);
+      await message.reply("❌ | Error while saving autoseen data.");
+    }
+  },
 };
